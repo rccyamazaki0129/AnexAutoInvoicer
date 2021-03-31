@@ -90,6 +90,10 @@ for torihiki in torihiki_list:
             gyo2 += 1
             ws.range(titlePos).value = 'おやつ代'
             ws.range(yenPos).value = rows[16]
+            numOyatsu = 'H' + str(gyo2 - 1)
+            yenOyatsu = 'I' + str(gyo2 - 1)
+            ws.range(numOyatsu).value = rows[22]
+            ws.range(yenOyatsu).value = rows[23]
         if(rows[17] != 0):
             titlePos = 'B' + str(gyo2)
             yenPos = 'K' + str(gyo2)
@@ -114,6 +118,26 @@ for torihiki in torihiki_list:
             gyo2 += 1
             ws.range(titlePos).value = 'その他'
             ws.range(yenPos).value = rows[20]
+            if (rows[24] != 0 and gyo2 != 28):
+                titlePos = 'B' + str(gyo2)
+                gyo2 += 1
+                ws.range(titlePos).value = rows[24]
+                if (rows[25] != 0 and gyo2 != 28):
+                    titlePos = 'B' + str(gyo2)
+                    gyo2 += 1
+                    ws.range(titlePos).value = rows[25]
+                    if (rows[26] != 0 and gyo2 != 28):
+                        titlePos = 'B' + str(gyo2)
+                        gyo2 += 1
+                        ws.range(titlePos).value = rows[26]
+                        if (rows[27] != 0 and gyo2 != 28):
+                            titlePos = 'B' + str(gyo2)
+                            gyo2 += 1
+                            ws.range(titlePos).value = rows[27]
+                            if (rows[28] != 0 and gyo2 != 28):
+                                titlePos = 'B' + str(gyo2)
+                                gyo2 += 1
+                                ws.range(titlePos).value = rows[28]
         ws.range('A32').value = rows[11]
 
     if (studentID < 10):
@@ -125,7 +149,7 @@ for torihiki in torihiki_list:
     # savepath = ws.range('P1').value + '/'
     # saveXlsxPath = ws.range('P2').value + '/'
 
-    pdf_path = os.path.join(new_folder_path, f'{torihiki}_reportXX.pdf')
+    pdf_path = os.path.join(new_folder_path, f'{bango}_{torihiki}_請求書.pdf')
     # wb.api.ExportAsFixedFormat(0, pdf_path)
     # os.startfile(pdf_path)
 
