@@ -4,6 +4,7 @@ import datetime
 import xlwings as xw
 import pandas as pd
 import os
+from xlwings import constants
 
 #プログラム2｜対象エクセルのファイルパスを指定
 samplepath = 'list/info.xlsx'
@@ -89,56 +90,62 @@ for torihiki in torihiki_list:
             yenPos = 'K' + str(gyo2)
             gyo2 += 1
             ws.range(titlePos).value = 'おやつ代'
-            ws.range(yenPos).value = rows[16]
+            ws.range(titlePos).api.HorizontalAlignment = -4131
+            ws.range(yenPos).value = rows[18]
             numOyatsu = 'H' + str(gyo2 - 1)
             yenOyatsu = 'I' + str(gyo2 - 1)
-            ws.range(numOyatsu).value = rows[22]
-            ws.range(yenOyatsu).value = rows[23]
-        if(rows[17] != 0):
-            titlePos = 'B' + str(gyo2)
-            yenPos = 'K' + str(gyo2)
-            gyo2 += 1
-            ws.range(titlePos).value = '送迎'
-            ws.range(yenPos).value = rows[17]
-        if(rows[18] != 0):
-            titlePos = 'B' + str(gyo1)
-            yenPos = 'K' + str(gyo1)
-            gyo1 += 1
-            ws.range(titlePos).value = '延長'
-            ws.range(yenPos).value = rows[18]
+            ws.range(numOyatsu).value = rows[16]
+            ws.range(yenOyatsu).value = rows[17]
         if(rows[19] != 0):
             titlePos = 'B' + str(gyo2)
             yenPos = 'K' + str(gyo2)
             gyo2 += 1
-            ws.range(titlePos).value = '教材'
+            ws.range(titlePos).value = '送迎'
+            ws.range(titlePos).api.HorizontalAlignment = -4131
             ws.range(yenPos).value = rows[19]
         if(rows[20] != 0):
+            titlePos = 'B' + str(gyo1)
+            yenPos = 'K' + str(gyo1)
+            gyo1 += 1
+            ws.range(titlePos).value = '延長'
+            ws.range(titlePos).api.HorizontalAlignment = -4131
+            ws.range(yenPos).value = rows[20]
+        if(rows[21] != 0):
+            titlePos = 'B' + str(gyo2)
+            yenPos = 'K' + str(gyo2)
+            gyo2 += 1
+            ws.range(titlePos).value = '教材'
+            ws.range(titlePos).api.HorizontalAlignment = -4131
+            ws.range(yenPos).value = rows[21]
+        if(rows[27] != 0):
             titlePos = 'B' + str(gyo2)
             yenPos = 'K' + str(gyo2)
             gyo2 += 1
             ws.range(titlePos).value = 'その他'
-            ws.range(yenPos).value = rows[20]
-            if (rows[24] != 0 and gyo2 != 28):
+            ws.range(titlePos).api.HorizontalAlignment = -4131
+            ws.range(yenPos).value = rows[27]
+            if (rows[22] != 0 and gyo2 != 28):
                 titlePos = 'B' + str(gyo2)
                 gyo2 += 1
-                ws.range(titlePos).value = rows[24]
-                if (rows[25] != 0 and gyo2 != 28):
+                ws.range(titlePos).value = rows[22]
+                ws.range(titlePos).api.HorizontalAlignment = -4108
+                if (rows[23] != 0 and gyo2 != 28):
                     titlePos = 'B' + str(gyo2)
                     gyo2 += 1
-                    ws.range(titlePos).value = rows[25]
-                    if (rows[26] != 0 and gyo2 != 28):
+                    ws.range(titlePos).value = rows[23]
+                    if (rows[24] != 0 and gyo2 != 28):
                         titlePos = 'B' + str(gyo2)
                         gyo2 += 1
-                        ws.range(titlePos).value = rows[26]
-                        if (rows[27] != 0 and gyo2 != 28):
+                        ws.range(titlePos).value = rows[24]
+                        if (rows[25] != 0 and gyo2 != 28):
                             titlePos = 'B' + str(gyo2)
                             gyo2 += 1
-                            ws.range(titlePos).value = rows[27]
-                            if (rows[28] != 0 and gyo2 != 28):
+                            ws.range(titlePos).value = rows[25]
+                            if (rows[26] != 0 and gyo2 != 28):
                                 titlePos = 'B' + str(gyo2)
                                 gyo2 += 1
-                                ws.range(titlePos).value = rows[28]
-        ws.range('A32').value = rows[11]
+                                ws.range(titlePos).value = rows[26]
+        ws.range('A32').value = rows[11]#message
 
     if (studentID < 10):
         bango = str(0) + str(studentID)
