@@ -159,6 +159,7 @@ for torihiki in torihiki_list:
     pdf_path = os.path.join(new_folder_path, f'{bango}_{torihiki}_請求書.pdf')
     # wb.api.ExportAsFixedFormat(0, pdf_path)
     # os.startfile(pdf_path)
+    wb.to_pdf(pdf_path)#this can be run on macbook
 
     wb.save(new_excel_folder_path + filename)
     wb.close()
