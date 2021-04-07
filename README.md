@@ -9,4 +9,4 @@ Packages
 
 How to Build
 ================
-pyinstaller main.py --onefile
+run "pyinstaller main.py --onefile"

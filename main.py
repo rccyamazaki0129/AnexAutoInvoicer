@@ -128,23 +128,27 @@ for torihiki in torihiki_list:
                 titlePos = 'B' + str(gyo2)
                 gyo2 += 1
                 ws.range(titlePos).value = rows[22]
-                ws.range(titlePos).api.HorizontalAlignment = -4108
+                ws.range(titlePos).api.HorizontalAlignment = -4152
                 if (rows[23] != 0 and gyo2 != 28):
                     titlePos = 'B' + str(gyo2)
                     gyo2 += 1
                     ws.range(titlePos).value = rows[23]
+                    ws.range(titlePos).api.HorizontalAlignment = -4152
                     if (rows[24] != 0 and gyo2 != 28):
                         titlePos = 'B' + str(gyo2)
                         gyo2 += 1
                         ws.range(titlePos).value = rows[24]
+                        ws.range(titlePos).api.HorizontalAlignment = -4152
                         if (rows[25] != 0 and gyo2 != 28):
                             titlePos = 'B' + str(gyo2)
                             gyo2 += 1
                             ws.range(titlePos).value = rows[25]
+                            ws.range(titlePos).api.HorizontalAlignment = -4152
                             if (rows[26] != 0 and gyo2 != 28):
                                 titlePos = 'B' + str(gyo2)
                                 gyo2 += 1
                                 ws.range(titlePos).value = rows[26]
+                                ws.range(titlePos).api.HorizontalAlignment = -4152
         ws.range('A32').value = rows[11]#message
 
     if (studentID < 10):
